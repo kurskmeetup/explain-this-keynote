@@ -6,6 +6,49 @@
 	<meta name="viewport" content="width=792, user-scalable=no">
 	<meta http-equiv="x-ua-compatible" content="ie=edge">
 	<link rel="stylesheet" href="shower/themes/bright/styles/screen.css">
+
+	<style>
+	.axis {
+	  position: relative;
+	  height: 30px;
+	  width: 300px;
+	  margin: 0 auto;
+
+	  font-size: 1rem;
+	  font-family: serif;
+	}
+
+	.axis:before {
+	  display: block;
+	  content: '';
+
+	  position: absolute;
+	  top: 50%;
+	  left: 0;
+	  right: 0;
+
+	  border-bottom: 1px solid #414141;
+	}
+
+	.point {
+	  position: absolute;
+	  left: 0;
+
+	  display: block;
+	  height: 30px;
+	  width: 30px;
+	  margin-left: -15px;
+
+	  background: #ff0;
+	  border-radius: 100%;
+	  line-height: 30px;
+	  text-align: center;
+	}
+
+	.point--scored_3 {
+	  left: 90px;
+	}
+	</style>
 </head>
 <body class="list">
 	<header class="caption">
@@ -15,9 +58,164 @@
 
 	<section class="slide" id="Cover"><div>
 		<h2>Объясни это</h2>
-		<p>Как уменьшить чезахерня/час в CSS</p>
+		<p>Как уменьшить количество чезахерня/час в CSS. 6 слайдов с CSS и всего одна смешная картинка.</p>
 		<p class="note">Василий Половнёв, Flatstack</p>
 	</div></section>
+
+	<section class="slide">
+		<div>
+			<h2>Вначале была ось</h2>
+			<div class="axis">
+			  <span class="point point--scored_3">
+			    3
+			  </span>
+			</div>
+
+			<br />
+
+			<pre class="next">
+				<code>&lt;div class="axis"&gt;</code>
+				<code>  &lt;span class="point point--scored_3"&gt;</code>
+				<code>    3</code>
+				<code>  &lt;/span&gt;</code>
+				<code>&lt;/div&gt;</code>
+			</pre>
+		</div>
+	</section>
+
+	<section class="slide">
+		<div>
+			<h2>CSS: ось</h2>
+			<pre>
+				<code>.axis {</code>
+				<code>  position: relative;</code>
+				<code>  height: <mark>20px</mark>;</code>
+				<code>  width: <mark>200px</mark>;</code>
+				<code>}</code>
+			</pre>
+		</div>
+	</section>
+
+	<section class="slide">
+		<div>
+			<h3>CSS: точка</h3>
+			<pre>
+				<code>.point {</code>
+				<code>  position: absolute;</code>
+				<code>  left: 0;</code>
+				<code>  height: <mark>20px</mark>;</code>
+				<code>  width: <mark>20px</mark>;</code>
+				<code>  margin-left: <mark>-10px</mark>;</code>
+				<code>  border-radius: 100%;</code>
+				<code>  line-height: <mark>20px</mark>;</code>
+				<code>  text-align: center;</code>
+				<code>}</code>
+			</pre>
+		</div>
+	</section>
+
+	<section class="slide">
+		<div>
+			<h2>И еще немного CSS для точки</h2>
+			<pre>
+				<code>.point--scored_3 {</code>
+				<code>  left: <mark>60px</mark>;</code>
+				<code>}</code>
+			</pre>
+		</div>
+	</section>
+
+	<section class="slide shout">
+		<div>
+			<h2><code>20</code> <code>200</code> <code>-10</code> <code>60</code></h2>
+		</div>
+	</section>
+
+	<section class="slide" style="background: url(pictures/hurley.jpg) center center no-repeat; background-size: contain;">
+    <div></div>
+  </section>
+
+  <section class="slide shout">
+  	<div>
+  		<h2>Нахер тайное знание!</h2>
+  	</div>
+  </section>
+
+  <section class="slide">
+  	<div>
+  		<h3>Давайте объясним</h3>
+  		<pre>
+  			<code>$point-diameter: 20px;</code>
+  			<code>$max-point-count: 10;</code>
+  			<code> </code>
+
+  			<div class="next"><code>.axis {</code>
+  			<code>  position: relative;</code>
+  			<code>  height: <mark>$point-diameter</mark>;</code>
+  			<code>  width: <mark>$max-point-count</mark> * <mark>$point-diameter</mark>;</code>
+  			<code>}</code></div>
+  		</pre>
+  	</div>
+  </section>
+
+  <section class="slide">
+  	<div>
+  		<pre>
+  			<code>.point {</code>
+  			<code>  position: absolute;</code>
+  			<code>  left: 0;</code>
+  			<code>  height: <mark>$point-diameter</mark>;</code>
+  			<code>  width: <mark>$point-diameter</mark>;</code>
+  			<code>  margin-left: <mark>-($point-diameter / 2)</mark>;</code>
+  			<code>  border-radius: 100%;</code>
+  			<code>  line-height: <mark>$point-diameter</mark>;</code>
+  			<code>  text-align: center;</code>
+  			<code>}</code>
+  		</pre>
+  	</div>
+  </section>
+
+  <section class="slide">
+  	<div>
+  		<pre>
+				<code>.point--scored_3 {</code>
+				<code>  left: <mark>3 * $point-diameter</mark>;</code>
+				<code>}</code>
+			</pre>
+  	</div>
+  </section>
+
+  <section class="slide">
+  	<div>
+  		<h2>Теперь ясно. Ясно, Карл!</h2>
+  		<ul>
+  			<li>Ось в длину 200px, чтобы вместить десять меток;</li>
+  			<li>Отрицательный отступ слева в половину метки нужен, чтобы отцентрировать ее;</li>
+  			<li>Высота строки в 20px центрирует текст метки по вертикали.</li>
+  		</ul>
+  	</div>
+  </section>
+
+  <section class="slide shout">
+  	<div>
+  		<h2>
+  			CSS — тоже код<span class="next">,
+  				и его тоже можно рефакторить
+  			</span>
+  		</h2>
+  	</div>
+  </section>
+
+  <section class="slide">
+  	<div>
+  		<h2>Спасибо</h2>
+  		<ul>
+  			<li>Презентация: <a href="http://kurskmeetup.github.io/explain-this-keynote">kurskmeetup.github.io/explain-this-keynote</a></li>
+  			<li>Рефакторинг: <a href="https://sourcemaking.com/refactoring/introduce-explaining-variable">Introduce Explaining Variable</a></li>
+  			<li>Твиттер: <a href="https://twitter.com/vazilla">@vazilla</a></li>
+  		</ul>
+  	</div>
+  </section>
 
 	<div class="progress"><div></div></div>
 	<script src="shower/shower.min.js"></script>
